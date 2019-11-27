@@ -6,7 +6,6 @@
 #define SETTIME 360
 
 int Key[256];//ƒL[ƒnƒ“ƒhƒ‹
-int graph[256];//ƒOƒ‰ƒtƒnƒ“ƒhƒ‹
 
 byte state;//ó‹µ
 
@@ -85,7 +84,7 @@ struct {
 	int yasuha[4];
 	int mayu[5];
 
-	//5‚Ü‚Å‚ÍÃ‰ª,6‚©‚ç‚Í’·–ì
+	//4‚Ü‚Å‚ÍÃ‰ª,5‚©‚ç‚Í’·–ì
 	int nagisa[10];
 
 	int karen[5];
@@ -103,18 +102,36 @@ struct {
 	int otsuki[5];
 	int misato[5];
 	int suzuho[5];
-	int nakano[5];
+
+	//4‚Ü‚Å‚Í’·–ì,5‚©‚ç‚ÍŒQ”n
+	int nakano[10];
+
 	int kana[5];
 	int sarina[5];
+
 	int yuki[5];
+
 	int chika[5];
 	int ibuki[5];
 	int nanjo[5];
+	//é‹Ê
 	int siki[2];
 	int risa[5];
 	int wakaba[4];
 	int arisa[5];
+	//ŒQ”n
 	int yu[5];
+	int tsukasa[5];
+	int miria[5];
+	//ˆïé
+	int koharu[2];
+	int yuuki[5];
+	int mizuki[5];
+	int aki[5];
+	//“È–Ø
+	int mutumi[5];
+	int hajime[5];
+	int riina[5];
 
 }Graph;
 void graphinit() {
@@ -307,9 +324,8 @@ void graphinit() {
 	Graph.risa[3] = LoadGraph("‰æ‘œ/“Iê4.png");
 	Graph.risa[4] = LoadGraph("‰æ‘œ/“Iê5.png");
 
-	Graph.minami[3] = LoadGraph("‰æ‘œ/ŒÃ‰Í1.png");
-	Graph.minami[3] = LoadGraph("‰æ‘œ/ŒÃ‰Í2.png");
-	
+	Graph.koharu[0] = LoadGraph("‰æ‘œ/ŒÃ‰Í1.png");
+	Graph.koharu[1] = LoadGraph("‰æ‘œ/ŒÃ‰Í2.png");
 	
 	Graph.wakaba[0] = LoadGraph("‰æ‘œ/á—t1.png");
 	Graph.wakaba[1] = LoadGraph("‰æ‘œ/á—t2.png");
@@ -328,33 +344,59 @@ void graphinit() {
 	Graph.yu[3] = LoadGraph("‰æ‘œ/‘¾“c4.jpg");
 	Graph.yu[4] = LoadGraph("‰æ‘œ/‘¾“c5.jpg");
 
-	graph[175] = LoadGraph("‰æ‘œ/‹Ë¶1.png");
-	graph[176] = LoadGraph("‰æ‘œ/‹Ë¶2.png");
-	graph[177] = LoadGraph("‰æ‘œ/‹Ë¶3.png");
+	Graph.tsukasa[0] = LoadGraph("‰æ‘œ/‹Ë¶1.png");
+	Graph.tsukasa[1] = LoadGraph("‰æ‘œ/‹Ë¶2.png");
+	Graph.tsukasa[2] = LoadGraph("‰æ‘œ/‹Ë¶3.png");
+	Graph.tsukasa[3] = LoadGraph("‰æ‘œ/‹Ë¶4.png");
+	Graph.tsukasa[4] = LoadGraph("‰æ‘œ/‹Ë¶5.png");
 
-	graph[180] = LoadGraph("‰æ‘œ/Ôé1.png");
-	graph[181] = LoadGraph("‰æ‘œ/Ôé2.png");
-	graph[182] = LoadGraph("‰æ‘œ/Ôé3.png");
-	graph[183] = LoadGraph("‰æ‘œ/Ôé4.png");
-	graph[184] = LoadGraph("‰æ‘œ/Ôé5.png");
+	Graph.miria[0] = LoadGraph("‰æ‘œ/Ôé1.png");
+	Graph.miria[1] = LoadGraph("‰æ‘œ/Ôé2.png");
+	Graph.miria[2] = LoadGraph("‰æ‘œ/Ôé3.png");
+	Graph.miria[3] = LoadGraph("‰æ‘œ/Ôé4.png");
+	Graph.miria[4] = LoadGraph("‰æ‘œ/Ôé5.png");
 
-	graph[185] = LoadGraph("‰æ‘œ/’†–ì6.png");
-	graph[186] = LoadGraph("‰æ‘œ/’†–ì7.png");
-	graph[187] = LoadGraph("‰æ‘œ/’†–ì8.png");
-	graph[188] = LoadGraph("‰æ‘œ/’†–ì9.png");
-	graph[189] = LoadGraph("‰æ‘œ/’†–ì10.png");
+	Graph.nakano[5] = LoadGraph("‰æ‘œ/’†–ì6.png");
+	Graph.nakano[6] = LoadGraph("‰æ‘œ/’†–ì7.png");
+	Graph.nakano[7] = LoadGraph("‰æ‘œ/’†–ì8.png");
+	Graph.nakano[8] = LoadGraph("‰æ‘œ/’†–ì9.png");
+	Graph.nakano[9] = LoadGraph("‰æ‘œ/’†–ì10.png");
 
-	graph[190] = LoadGraph("‰æ‘œ/“¡Œ´1.png");
-	graph[191] = LoadGraph("‰æ‘œ/“¡Œ´2.png");
-	graph[192] = LoadGraph("‰æ‘œ/“¡Œ´3.png");
-	graph[193] = LoadGraph("‰æ‘œ/“¡Œ´4.png");
-	graph[194] = LoadGraph("‰æ‘œ/“¡Œ´5.png");
+	Graph.yuuki[0] = LoadGraph("‰æ‘œ/Œ‹é1.png");
+	Graph.yuuki[1] = LoadGraph("‰æ‘œ/Œ‹é2.png");
+	Graph.yuuki[2] = LoadGraph("‰æ‘œ/Œ‹é3.png");
+	Graph.yuuki[3] = LoadGraph("‰æ‘œ/Œ‹é4.png");
+	Graph.yuuki[4] = LoadGraph("‰æ‘œ/Œ‹é5.png");
 
-	graph[200] = LoadGraph("‰æ‘œ/‘½“c1.png");
-	graph[201] = LoadGraph("‰æ‘œ/‘½“c2.png");
-	graph[202] = LoadGraph("‰æ‘œ/‘½“c3.png");
-	graph[203] = LoadGraph("‰æ‘œ/‘½“c4.png");
-	graph[204] = LoadGraph("‰æ‘œ/‘½“c5.png");
+	Graph.mizuki[0] = LoadGraph("‰æ‘œ/ì“‡1.png");
+	Graph.mizuki[1] = LoadGraph("‰æ‘œ/ì“‡2.png");
+	Graph.mizuki[2] = LoadGraph("‰æ‘œ/ì“‡3.png");
+	Graph.mizuki[3] = LoadGraph("‰æ‘œ/ì“‡4.png");
+	Graph.mizuki[4] = LoadGraph("‰æ‘œ/ì“‡5.png");
+
+	Graph.aki[0] = LoadGraph("‰æ‘œ/‘å˜a1.png");
+	Graph.aki[1] = LoadGraph("‰æ‘œ/‘å˜a2.png");
+	Graph.aki[2] = LoadGraph("‰æ‘œ/‘å˜a3.png");
+	Graph.aki[3] = LoadGraph("‰æ‘œ/‘å˜a4.png");
+	Graph.aki[4] = LoadGraph("‰æ‘œ/‘å˜a5.png");
+
+	Graph.mutumi[0] = LoadGraph("‰æ‘œ/‰Æ1.png");
+	Graph.mutumi[1] = LoadGraph("‰æ‘œ/‰Æ2.png");
+	Graph.mutumi[2] = LoadGraph("‰æ‘œ/‰Æ3.png");
+	Graph.mutumi[3] = LoadGraph("‰æ‘œ/‰Æ4.png");
+	Graph.mutumi[4] = LoadGraph("‰æ‘œ/‰Æ5.png");
+
+	Graph.hajime[0] = LoadGraph("‰æ‘œ/“¡Œ´1.png");
+	Graph.hajime[1] = LoadGraph("‰æ‘œ/“¡Œ´2.png");
+	Graph.hajime[2] = LoadGraph("‰æ‘œ/“¡Œ´3.png");
+	Graph.hajime[3] = LoadGraph("‰æ‘œ/“¡Œ´4.png");
+	Graph.hajime[4] = LoadGraph("‰æ‘œ/“¡Œ´5.png");
+
+	Graph.riina[0] = LoadGraph("‰æ‘œ/‘½“c1.png");
+	Graph.riina[1] = LoadGraph("‰æ‘œ/‘½“c2.png");
+	Graph.riina[2] = LoadGraph("‰æ‘œ/‘½“c3.png");
+	Graph.riina[3] = LoadGraph("‰æ‘œ/‘½“c4.png");
+	Graph.riina[4] = LoadGraph("‰æ‘œ/‘½“c5.png");
 }
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -374,7 +416,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		case SEARCH:
 			searching();
 			break;
-		
 		case REPORT:
 			reportmain();
 			break;
@@ -442,42 +483,22 @@ void move() {
 	case SEARCH:
 		if (Key[KEY_INPUT_RETURN] == 1)
 		{
-			Search.state = 0;
 			state = TITLE;
+			Search.state = 0;
 		}
 		switch (Search.state)
 		{
 		case 0:
-			if (Key[KEY_INPUT_A] == 1)
-			{
-				Search.state = 1;
-			}
-			if (Key[KEY_INPUT_B] == 1)
-			{
-				Search.state = 2;
-			}
-			if (Key[KEY_INPUT_C] == 1)
-			{
-				Search.state = 3;
-			}
+			
 			break;
 		case 1:
-			if (Key[KEY_INPUT_BACK] == 1)
-			{
-				Search.state = 0;
-			}
+		
 			break;
 		case 2:
-			if (Key[KEY_INPUT_BACK] == 1)
-			{
-				Search.state = 0;
-			}
+		
 			break;
 		case 3:
-			if (Key[KEY_INPUT_BACK] == 1)
-			{
-				Search.state = 0;
-			}
+			
 			break;
 		}
 		break;
@@ -974,72 +995,11 @@ void move() {
 				}
 				break;
 			}
+			//Še‰wÚ×•\¦‰æ–Ê‚Ö
 			if (Key[KEY_INPUT_RETURN] == 1)
 			{
-				if (Report.stateofNO4 == 0)
-				{
-					Report.state = 32;
-				}
-				if (Report.stateofNO4 == 1)
-				{
-					Report.state = 33;
-				}
-				if (Report.stateofNO4 == 2)
-				{
-					Report.state = 34;
-				}
-				if (Report.stateofNO4 == 3)
-				{
-					Report.state = 35;
-				}
-				if (Report.stateofNO4 == 4)
-				{
-					Report.state = 36;
-				}
-				if (Report.stateofNO4 == 5)
-				{
-					Report.state = 37;
-				}
-				if (Report.stateofNO4 == 6)
-				{
-					Report.state = 38;
-				}
-				if (Report.stateofNO4 == 7)
-				{
-					Report.state = 39;
-				}
-				if (Report.stateofNO4 == 8)
-				{
-					Report.state = 40;
-				}
-				if (Report.stateofNO4 == 9)
-				{
-					Report.state = 41;
-				}
-				if (Report.stateofNO4 == 10)
-				{
-					Report.state = 42;
-				}
-				if (Report.stateofNO4 == 11)
-				{
-					Report.state = 43;
-				}
-				if (Report.stateofNO4 == 12)
-				{
-					Report.state = 44;
-				}
-				if (Report.stateofNO4 == 13)
-				{
-					Report.state = 45;
-				}
-				if (Report.stateofNO4 == 14)
-				{
-					Report.state = 46;
-				}
-				if (Report.stateofNO4 == 15)
-				{
-					Report.state = 47;
-				}
+				Report.state = 32 + Report.stateofNO4;//ƒf[ƒ^‚Ístate32`
+
 			}
 			if (Key[KEY_INPUT_BACK] == 1)
 			{
@@ -1581,8 +1541,6 @@ void reportmain() {
 				DrawString(300, 160, "Šİ’n", orange);
 				DrawString(300, 200, "VŠƒŒ§”ès", yellow);
 			}
-
-
 		}
 		else
 		{
@@ -2145,8 +2103,8 @@ void reportmain() {
 		break;
 	case 38:
 		time++;
-		DrawGraph(0, 0, graph[145 + Report.stateofNO4 * 5 + time / 360], false);
-		if (time >= 360 * 3 - 1)
+		DrawGraph(0, 0, Graph.tsukasa[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
 		{
 			time = 0;
 		}
@@ -2166,7 +2124,7 @@ void reportmain() {
 		break;
 	case 39:
 		time++;
-		DrawGraph(0, 0, graph[145 + Report.stateofNO4 * 5 + time / 360], false);
+		DrawGraph(0, 0, Graph.miria[time / SETTIME], false);
 		if (time >= 360 * 5 - 1)
 		{
 			time = 0;
@@ -2187,27 +2145,171 @@ void reportmain() {
 		break;
 	case 40://’†–ì
 		time++;
+		DrawGraph(0, 0, Graph.nakano[5 + time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "’†–ì—L", pink);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "‚í‚½‚ç‚¹Œk’J“S“¹", yellow);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "ŒQ”nŒ§‚İ‚Ç‚ès", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 41://ŒÃ‰Í
 		time++;
+		DrawGraph(0, 0, Graph.koharu[time / SETTIME], false);
+		if (time >= 360 * 2 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "ŒÃ‰ê¬t", pink);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "‰F“s‹{ü", yellow);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "ˆïéŒ§ŒÃ‰Ís", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 42://Œ‹é
 		time++;
+		DrawGraph(0, 0, Graph.yuuki[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "Œ‹é°,‰³‘q—I‹M", purple);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "…ŒËü", skyblue);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "ˆïéŒ§Œ‹és", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 43://ì“‡
 		time++;
+		DrawGraph(0, 0, Graph.mizuki[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "ì“‡÷", skyblue);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "…ŒËü", skyblue);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "ˆïéŒ§’}¼s", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 44://‘å˜a
 		time++;
+		DrawGraph(0, 0, Graph.aki[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "‘å˜aˆŸ‹G", skyblue);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "…ŒËü", skyblue);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "ˆïéŒ§÷ìs", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 45://‰Æ
 		time++;
+		DrawGraph(0, 0, Graph.mutumi[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "‰Æ‚Ş‚Â‚İ", skyblue);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "‰F“s‹{ü", yellow);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "“È–ØŒ§‚³‚­‚çs", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 46://‘½“c
 		time++;
+		DrawGraph(0, 0, Graph.riina[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "‘½“c—›ˆßØ", skyblue);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "“Œ•²–ìü", yellow);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "“È–ØŒ§²–ìs", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	case 47://V“¡Œ´
 		time++;
+		DrawGraph(0, 0, Graph.hajime[time / SETTIME], false);
+		if (time >= 360 * 5 - 1)
+		{
+			time = 0;
+		}
+		if (Report.charon)
+		{
+			DrawString(300, 0, "–¼‘O", orange);
+			DrawString(300, 40, "“¡Œ´”£", skyblue);
+			DrawString(300, 80, "‰w˜Hü", orange);
+			DrawString(300, 120, "“Œ•‹S“{ìü‚È‚Ç", yellow);
+			DrawString(300, 160, "Šİ’n", orange);
+			DrawString(300, 200, "“È–ØŒ§“úŒõs", yellow);
+		}
+		else
+		{
+			DrawString(300, 450, "Esc:•¶šî•ñ", yellow);
+		}
 		break;
 	}
 }
